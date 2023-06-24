@@ -1,0 +1,16 @@
+********************** Server Endpoints ******************************
+1. Test endpoints for server.
+completed: 06/23/23
+Tested server endpoints
+status:200
+
+2. Test endpoints for client.
+completed: 06//
+Tested client endpoints.
+status: 
+*********************** Folder and File structure *****************************
+1. Use CLI to build MERN Folder and File structure (to run the server).
+completed: 06/23/23
+I was able to identify the correct folders and files to build the structure.
+
+2. Writing the requisite code to implement a succussfully connected and running server is the next item to practice.
