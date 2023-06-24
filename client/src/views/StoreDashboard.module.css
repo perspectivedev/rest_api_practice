@@ -1,0 +1,33 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 7rem auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 100%;
+}
+
+.hr {
+    width: 100%;
+}
+
+.table {
+    gap: .5rem;
+}
+
+.thead {
+    background: black;
+    text-align: center;
+}
+
+th {
+    padding: 1rem;
+}
+
+td {
+    text-align: center;
+
+}

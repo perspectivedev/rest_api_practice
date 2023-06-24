@@ -1,0 +1,13 @@
+.delBtn {
+    background: rgb(255, 0, 0);
+    color: white;
+    border: .175rem solid rgba(255, 0, 0, 0.5);
+    padding: .275rem;
+    border-radius: 8px;
+}
+
+.delBtn:hover, 
+.delBtn:active {
+    background: rgba(255, 0, 0, 0.5);
+    color: black;
+}

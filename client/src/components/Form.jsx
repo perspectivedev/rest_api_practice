@@ -27,10 +27,12 @@ const Form = (props) => {
                 <div>
                     <label htmlFor="storeName">Store Name</label>
                     <input type="text" id="storeName" onChange={e => setStoreName(e.target.value)} value={storeName} />
+                    {/* err will go here. */}
                 </div>
                 <div>
                     <label htmlFor="storeNumber">Store Number</label>
                     <input type="number" id="storeNumber" onChange={e => setStoreNumber(e.target.value)} value={storeNumber} />
+                    {/* err will go here. */}
                 </div>
                 <div>
                     <label htmlFor="storeStatus">Open?</label>

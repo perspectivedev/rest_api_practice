@@ -1,30 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import style from '../components/DeleteBtn.module.css';
+
 
 const DeleteBtn = (props) => {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const [stores, setStores] = useState({
-        storeName: '',
-        storeNumber: '',
-        storeStatus: ''
-    });
-console.log(stores, setStores, navigate('/stores'), );
+    const { id, onSuccess } = props;
 
 
     const deleteOneStore = () => {
         axios.delete(`http://localhost:8000/api/stores/${id}`)
             .then(res => {
-                setStores(stores => stores.filter((item) => item._id !== id));
-                navigate('/stores');
+                onSuccess()
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
     }
 
+
     return (
-        <button className='' onClick={() => deleteOneStore(stores._id)} >Delete</button>
+        <button className={style.delBtn} onClick={deleteOneStore} >Delete</button>
     )
 }
-console.log(DeleteBtn);
+
 export default DeleteBtn;
