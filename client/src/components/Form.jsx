@@ -10,7 +10,6 @@ const Form = (props) => {
     const [ storeStatus, setStoreStatus ] = useState(props.store ? props.store.storeStatus : false);
     const [ storeNameErr, setStoreNameErr] = useState('');
     const [ storeNumberErr, setStoreNumberErr] = useState('');
-    const [ errors, setErrors ] = useState([]);
 
     // const isDataValidate = (data) => {
     //     return false;
@@ -57,7 +56,7 @@ const Form = (props) => {
                     <label htmlFor="storeStatus">Open?</label>
                     <input type="checkbox" id="storeStatus" onChange={e => setStoreStatus(e.target.checked)} checked={storeStatus} />
                 </div>
-                <button type="submit" >Add a new Store</button>
+                <button type="submit" >{props.store ? 'Edit Store' : 'Add a new Store'}</button>
             </form>
         </>
     )

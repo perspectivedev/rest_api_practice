@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Form from '../components/Form';
 import axios from 'axios';
 
 const Edit = (props) => {
     const { id } = useParams();
-    const [store, setStore] = useState({ storeName: '', storeNumber: '', storeStatus: '' });
-    
-    axios.get(`http://localhost:8000/api/stores/${id}`)
-    .then( res => setStore(res.data.id))
-    .catch( err => console.log(err));
-    console.log(id);
+    const [store, setStore] = useState('');
+
+    // const [ storeName, setStoreName ] = useState('');
+    // const [ storeNumber, setStoreNumber ] = useState('');
+    // const [ storeStatus, setStoreStatus ] = useState(true);
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/stores/${id}`)
+        .then( res => {
+            setStore(res.data)
+            // setStoreName(res.date)
+            // setStoreNumber(res.data)
+            // setStoreStatus(res.data)
+        })
+        .catch((err) => { console.log(err)
+            // const errors = err.response.data.errors;  
+            // for(let key of Object.keys(errors)){
+            //     console.log(key, '  ->  ', errors[key].message);
+            // }
+            // setStoreNameErr(errors['storeName'] ? errors['storeName'].message : '')
+            // setStoreNumberErr(errors['storeNumber'] ? errors['storeNumber'].message : '')
+        });
+        console.log(id);
+    }, [])
 
     return (
         <>
@@ -21,7 +40,7 @@ const Edit = (props) => {
         </div>
         <p>Edit this store!</p>
         </div>
-        <Form method="put" action={`/${id}`} store={store}/>
+        {store && <Form method="put" action={`/${id}`} store={store}/>}
         </>
     )
 }
