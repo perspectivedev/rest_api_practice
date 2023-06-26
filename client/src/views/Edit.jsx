@@ -5,12 +5,12 @@ import axios from 'axios';
 
 const Edit = (props) => {
     const { id } = useParams();
-
     const [store, setStore] = useState({ storeName: '', storeNumber: '', storeStatus: '' });
-
-    axios.get('http://localhost:8000/api/stores/' + id)
-        .then( res => setStore(res.data))
-        .catch( err => console.log(err));
+    
+    axios.get(`http://localhost:8000/api/stores/${id}`)
+    .then( res => setStore(res.data.id))
+    .catch( err => console.log(err));
+    console.log(id);
 
     return (
         <>
