@@ -10,7 +10,7 @@ module.exports.addStore = ( req, res ) => {
         storeStatus
     })
     .then( store => res.json( store ))
-    .catch( err => res.json( err ) );
+    .catch( err => res.status(400).json( err ) );
 }
 
 // Creating a controller to GET all items
@@ -31,7 +31,7 @@ module.exports.getOneStore = ( req, res ) => {
 module.exports.updateStore = ( req, res ) => {
     Stores.findOneAndUpdate( { _id: req.params.id }, req.body, { new: true, runValidators: true } )
         .then( updateStore => res.json( updateStore ) )
-        .catch( err => res.json( err ) );
+        .catch( err => res.status(400).json( err ) );
 }
 
 
